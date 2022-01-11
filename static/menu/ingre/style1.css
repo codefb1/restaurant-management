@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+body
+{
+	
+  
+	
+	line-height: 1.8;
+	font-size: 15px;
+	font-weight: 400;
+	justify-content: center;
+	align-items: center;
+	font-family: "Poppins", Arial, sans-serif;
+	background: #FFE0B2 ;
+}
+h1
+{
+	margin: 0;
+	padding: 10px 20px;
+	background: #B71C1C;
+	color: #FFFDE7;
+	font-size: 18px;
+	letter-spacing: 2px;
+	text-transform: Arial;
+
+}
+h2
+{
+	margin: 0;
+	padding: 10px 10px;
+	background: #FFAB91;
+	color: #fff;
+	font-size: 18px;
+	letter-spacing: 2px;
+	text-transform: Arial;
+
+}
+ul
+{
+	margin: 0;
+	padding: 10px 20px;
+	border: none;
+	border-top: none;
+}
+ul li
+{
+	list-style: none;
+	padding: 5px 0;
+	font-size: 16px;
+	
+}
+ul li input[type="checkbox"]
+{
+	/*display: none;*/
+}
+ul li span.list
+{
+	position: relative;
+	display: inline-block;
+	overflow: hidden;
+	padding: 0 5px;
+	transition: 0.5s;
+}
+ul li input[type="checkbox"]:checked ~ span.list
+{
+	color: #993333
+	
+}
+ul li span.list:before
+{
+	content: '';
+	position: absolute;
+	top: 0;
+	left: -100%;
+	background: #ff3663;
+	width: 100%;
+	height: 100%;
+	transition: 0.5s;
+	transition-delay: 0.5s;
+}
+ul li input[type="checkbox"]:checked ~ span.list:before
+{
+	left: 100%;
+	transition-delay: 0.5s;
+}
+ul li span.list:after
+{
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: 0;
+	background: #000000;
+	width: 100%;
+	height: 2px;
+	transform-origin: left;
+	transform: scalex(0);
+	transition: 0.5s;
+	transition-delay: 0s;
+}
+ul li input[type="checkbox"]:checked ~ span.list:after
+{
+	
+	transform: scalex(0);
+	transition-delay: 0.5s;
+	
+}

@@ -1,0 +1,168 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>menu</title>
+
+
+  <!-- Facebook and Twitter integration -->
+
+	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+
+	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
+
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="{% static 'menu/css/animate.css' %}">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="{% static 'menu/css/icomoon.css' %}">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="{% static 'menu/css/bootstrap.css' %}">
+	<!-- Owl Carousel -->
+	<link rel="stylesheet" href="{% static 'menu/css/owl.carousel.min.css' %}">
+	<link rel="stylesheet" href="{% static 'menu/css/owl.theme.default.min.css' %}">
+	<!-- Magnific Popup -->
+	<link rel="stylesheet" href="{% static 'menu/css/magnific-popup.css' %}">
+	<!-- Flexslider  -->
+	<link rel="stylesheet" href="{% static 'menu/css/flexslider.css' %}">
+	<!-- Flaticons  -->
+	<link rel="stylesheet" href="{% static 'menu/fonts/flaticon/font/flaticon.css' %}">
+	<!-- Date Picker -->
+	<link rel="stylesheet" href="{% static 'menu/css/bootstrap-datepicker.css' %}">
+
+	<link rel="stylesheet" href="{% static 'menu/css/style.css' %}">
+	<link rel="icon"  href="images/39045.png" />
+<link rel="shortcut icon" type="image/png" href="{% static 'assets/img/foodtech/foodtech-logo-216x62.png' %}">
+	<!-- Modernizr JS -->
+	<script src="{% static 'menu/js/modernizr-2.6.2.min.js' %}"></script>
+	<link rel="icon" type="image/png" sizes="32x32" href="../favicon.ico">
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+	<script type="text/javascript">
+		var user = '{{request.user}}'
+
+		function getToken(name) {
+		    var cookieValue = null;
+		    if (document.cookie && document.cookie !== '') {
+		        var cookies = document.cookie.split(';');
+		        for (var i = 0; i < cookies.length; i++) {
+		            var cookie = cookies[i].trim();
+		            // Does this cookie string begin with the name we want?
+		            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+		                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+		                break;
+		            }
+		        }
+		    }
+		    return cookieValue;
+		}
+		var csrftoken = getToken('csrftoken')
+
+		function getCookie(name) {
+		    // Split cookie string and get all individual name=value pairs in an array
+		    var cookieArr = document.cookie.split(";");
+
+		    // Loop through the array elements
+		    for(var i = 0; i < cookieArr.length; i++) {
+		        var cookiePair = cookieArr[i].split("=");
+
+		        /* Removing whitespace at the beginning of the cookie name
+		        and compare it with the given string */
+		        if(name == cookiePair[0].trim()) {
+		            // Decode the cookie value and return
+		            return decodeURIComponent(cookiePair[1]);
+		        }
+		    }
+
+		    // Return null if not found
+		    return null;
+		}
+		var cart = JSON.parse(getCookie('cart'))
+
+		if (cart == undefined){
+			cart = {}
+			console.log('Cart Created!', cart)
+			document.cookie ='cart=' + JSON.stringify(cart) + ";domain=;path=/"
+		}
+		console.log('Cart:', cart)
+
+	</script>
+	</head>
+	<body>
+
+
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 col-md-offset-3 text-center animate-box intro-heading">
+						<span class="icon"><i class="flaticon-cutlery"></i></span>
+						<h2>MENU</h2>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12 animate-box">
+
+						<div class="tab-content ">
+							<div role="tabpanel" class="tab-pane active" id="main">
+								<div class="row">
+									<div class="col-md-6">
+										<ul class="menu-dish">
+											{% for i in plat %}
+						              <li>
+						                <figure class="dish-entry">
+						                	<img class="dish-img " border="0" src="{{i.imagplat.url}}">
+
+						                </figure>
+						                <div class="text">
+						                  <span class="price">{{i.prix_plat}} DT</span>
+						                  <h3>{{i.nom_plat}}</h3>
+						                  <p class="cat"><a  href="{% url 'menuing' i.id %}" >ingrédients </a></p>
+						                </div>
+						              </li>
+													{% endfor %}
+						            </ul>
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-12 animate-box text-center">
+
+						<p><a href="{% url 'commander' %}" class="btn btn-primary btn-outline btn-md">commander</a></p>
+						<p><a href="{% url 'menu' %}" class="btn btn-primary btn-outline btn-md">Retour</a></p>
+
+
+			</div>
+		</div>
+	<!-- jQuery -->
+	<script src="{% static 'assets/js/cart.js' %}"> </script>
+	<script src="{% static 'menu/js/jquery.min.js' %}"></script>
+	<!-- jQuery Easing -->
+	<script src="{% static 'menu/js/jquery.easing.1.3.js' %}"></script>
+	<!-- Bootstrap -->
+	<script src="{% static 'menu/js/bootstrap.min.js' %}"></script>
+	<!-- Waypoints -->
+	<script src="{% static 'menu/js/jquery.waypoints.min.js' %}"></script>
+	<!-- Parallax -->
+	<script src="{% static 'menu/js/jquery.stellar.min.js' %}"></script>
+	<!-- Owl Carousel -->
+	<script src="{% static 'menu/js/owl.carousel.min.js' %}"></script>
+	<!-- Magnific Popup -->
+	<script src="{% static 'menu/js/jquery.magnific-popup.min.js' %}"></script>
+	<script src="{% static 'menu/js/magnific-popup-options.js' %}"></script>
+	<!-- Flexslider -->
+	<script src="{% static 'menu/js/jquery.flexslider-min.js' %}"></script>
+	<!-- Date Picker -->
+	<script src="{% static 'menu/js/bootstrap-datepicker.js' %}"></script>
+	<script src="{% static 'menu/js/Babel.js' %}"></script>
+
+	<!-- Main JS (Do not remove) -->
+	<script src="{% static 'menu/js/main.js' %}"></script>
+
+	</body>
+</html>

@@ -1,0 +1,335 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>inventaire</title>
+  <!-- Iconic Fonts -->
+  <link rel="shortcut icon" type="image/png" href="{% static 'assets/img/foodtech/foodtech-logo-216x62.png' %}">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="{% static 'vendors/iconic-fonts/flat-icons/icon.css' %}" rel="stylesheet">
+  <link href="{% static 'vendors/iconic-fonts/font-awesome/css/all.min.css' %}" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'vendors/iconic-fonts/flat-icons/flaticon.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/iconic-fonts/cryptocoins/cryptocoins.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/iconic-fonts/cryptocoins/cryptocoins-colors.css' %}">
+  <!-- Bootstrap core CSS -->
+  <link href="{%static 'assets/css/bootstrap.min.css' %}" rel="stylesheet">
+  <!-- Page Specific Css (Datatables.css) -->
+  <link href="{% static 'assets/css/datatables.min.css' %}" rel="stylesheet">
+
+  <!-- jQuery UI -->
+  <link href="{% static 'assets/css/jquery-ui.min.css' %}" rel="stylesheet">
+  <!-- Foodtech Core styles -->
+  <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon.ico">
+
+
+
+
+
+
+  <!-- Page Specific CSS (Slick Slider.css) -->
+  <link href="{% static 'assets/css/slick.css' %}" rel="stylesheet">
+
+
+</head>
+
+
+<body class="ms-body ms-aside-left-open ms-primary-theme ms-has-quickbar">
+
+
+
+  <!-- Preloader -->
+  <div id="preloader-wrap">
+    <div class="spinner spinner-8">
+      <div class="ms-circle1 ms-child"></div>
+      <div class="ms-circle2 ms-child"></div>
+      <div class="ms-circle3 ms-child"></div>
+      <div class="ms-circle4 ms-child"></div>
+      <div class="ms-circle5 ms-child"></div>
+      <div class="ms-circle6 ms-child"></div>
+      <div class="ms-circle7 ms-child"></div>
+      <div class="ms-circle8 ms-child"></div>
+      <div class="ms-circle9 ms-child"></div>
+      <div class="ms-circle10 ms-child"></div>
+      <div class="ms-circle11 ms-child"></div>
+      <div class="ms-circle12 ms-child"></div>
+    </div>
+  </div>
+
+  <!-- Overlays -->
+  <div class="ms-aside-overlay ms-overlay-left ms-toggler" data-target="#ms-side-nav" data-toggle="slideLeft"></div>
+  <div class="ms-aside-overlay ms-overlay-right ms-toggler" data-target="#ms-recent-activity" data-toggle="slideRight"></div>
+
+  <!-- Sidebar Navigation Left -->
+   <aside id="ms-side-nav" class="side-nav fixed ms-aside-scrollable ms-aside-left">
+    <!-- Logo -->
+     <div class="logo-sn ms-d-block-lg">
+      <a class="pl-0 ml-0 text-center"> <img src="{% static 'assets/img/foodtech/foodtech-logo-216x62.png' %}" alt="logo"> </a>
+    </div>
+    <!-- Navigation -->
+    <ul class="accordion ms-main-aside fs-14" id="side-nav-accordion">
+      <!-- Dashboard -->
+      <li class="menu-item">
+        </a>
+        <a href="{% url 'index'%}" > <span><i class="material-icons fs-16">dashboard</i>Dashboard </span>
+        </a>
+
+      </li>
+      <!-- /Dashboard -->
+      <!-- product -->
+      <li class="menu-item">
+        <a href="#" class="has-chevron" data-toggle="collapse" data-target="#product" aria-expanded="false" aria-controls="product"> <span><i class="fa fa-archive fs-16"></i>Menu </span>
+        </a>
+        <ul id="product" class="collapse" aria-labelledby="product" data-parent="#side-nav-accordion">
+          <li> <a href="{% url 'productcata' %}">Catalogue de menu</a>
+          </li>
+
+
+          <li> <a href="{% url 'addproduct' %}">ajouter un plat</a>
+          </li>
+
+        </ul>
+      </li>
+      <!-- product end -->
+      <!-- orders -->
+
+      <!-- orders end -->
+
+
+      <!-- customers-->
+      <li class="menu-item">
+       <a href="{% url 'tablelist' %}"> <span><i class="fas fa-user-friends fs-16"></i>tables</span>
+        </a>
+
+      </li>
+      <!-- Customers  end -->
+      <!-- sales -->
+      <li class="menu-item">
+        <a href="{% url 'orders' %}"> <span><i class="fas fa-clipboard-list fs-16"></i>commandes</span>
+        </a>
+      </li>
+      <!-- sales end  -->
+
+      <li class="menu-item">
+        <a href="{% url 'achat' %}"> <span><i class="fas fa-shopping-cart"></i>achat</span>
+        </a>
+      </li>
+
+
+
+            </li>
+
+            <li class="menu-item">
+               <a href="{% url 'inventaire' %}"><span><i class="fas fa-clipboard fs-16"></i>inventaire</span>
+              </a>
+
+            </li>
+
+
+
+      <!-- Pages -->
+      <li class="menu-item">
+        <a href="{% url 'userprofile' %}"><span><i class="material-icons fs-16">insert_drive_file</i>profile</span>
+        </a>
+
+
+
+
+
+      </li>
+     <!-- Form Elements -->
+      <li class="menu-item">
+         <a href="{% url 'adduser' %}"><span><i class="material-icons fs-16">input</i>ajouter un nouveau admin</span>
+        </a>
+
+
+
+
+      <!-- /Form Elements -->
+
+    </ul>
+  </aside>
+
+
+  <!-- Main Content -->
+  <main class="body-content">
+
+    <!-- Navigation Bar -->
+  <nav class="navbar ms-navbar">
+
+      <div class="ms-aside-toggler ms-toggler pl-0" data-target="#ms-side-nav" data-toggle="slideLeft">
+        <span class="ms-toggler-bar bg-primary"></span>
+        <span class="ms-toggler-bar bg-primary"></span>
+        <span class="ms-toggler-bar bg-primary"></span>
+      </div>
+
+      <div class="logo-sn logo-sm ms-d-block-sm">
+        <a class="pl-0 ml-0 text-center navbar-brand mr-0" href="index.html"><img src="../assets/img/foodtech/foodtech-logo-84x41.png" alt="logo"> </a>
+      </div>
+
+           <ul class="ms-nav-list ms-inline mb-0" id="ms-nav-options">
+
+        <li class="ms-nav-item dropdown">
+
+          <ul >
+             <a class="media fs-14 p-2" href="user-profile.html"> <span><i class="flaticon-user mr-2"></i> {{request.user}}</span> </a>
+          </ul>
+        </li>
+        <li class="ms-nav-item dropdown">
+
+          <ul>
+
+             <li class="dropdown-menu-footer">
+              <a class="media fs-14 p-2" href="lock-screen.html"> <span><i class="flaticon-security mr-2"></i> Lock</span> </a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="ms-nav-item ms-nav-user dropdown">
+
+          <ul >
+
+            <li class="dropdown-menu-footer">
+              <a class="media fs-14 p-2" href="default-login.html"> <span><i class="flaticon-shut-down mr-2"></i> <a href="{% url 'logout' %}"></a></span> </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+      <div class="ms-toggler ms-d-block-sm pr-0 ms-nav-toggler" data-toggle="slideDown" data-target="#ms-nav-options">
+        <span class="ms-toggler-bar bg-primary"></span>
+        <span class="ms-toggler-bar bg-primary"></span>
+        <span class="ms-toggler-bar bg-primary"></span>
+      </div>
+
+    </nav>
+
+    <div class="ms-content-wrapper">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="ms-panel">
+            <div class="ms-panel-header">
+              <h6>inventaire</h6>
+            </div>
+            <div class="ms-panel-body">
+              <div>
+              <a class="btn btn-primary" href="{% url 'inventaire' %}">inventaire</a>
+              <a class="btn btn-primary" href="{% url 'inventaire1m' %}">inventaire 1 mois</a>
+              <a class="btn btn-primary" href="{% url 'inventaire3m' %}">inventaire 3 mois</a>
+              <a class="btn btn-primary" href="{% url 'inventaire6m' %}" >Inventaire 6 mois</a>
+            </div>
+              <p><a href="#"></a></P>
+
+              <div class="table-responsive">
+
+                <table class="table table-hover thead-primary">
+                  <thead>
+                    <tr>
+                      <th scope="col">ingredient </th>
+                      <th scope="col">untité</th>
+                      <th scope="col">quantité acheté </th>
+                      <th scope="col">quantité consommée</th>
+                      <th scope="col">reste theorique</th>
+
+
+                    </tr>
+                  </thead>
+                  <tbody>
+{% for i in invetry %}
+                      <tr>
+
+
+
+                      <td>{{i.nom}}</td>
+                      <td>{{i.uni}}</td>
+                      <td>{{i.achat_totale}}</td>
+                      <td>{{i.vent_totale}}</td>
+                      <td>{{i.reste}}</td>
+
+                    </tr>
+
+
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+
+  </main>
+
+
+
+
+  <!-- MODALS -->
+
+
+
+
+
+ <!-- SCRIPTS -->
+  <!-- Global Required Scripts Start -->
+  <script src="{% static 'assets/js/jquery-3.3.1.min.js' %}"></script>
+  <script src="{% static 'assets/js/popper.min.js' %}"></script>
+  <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'assets/js/perfect-scrollbar.js' %}"> </script>
+  <script src="{% static 'assets/js/jquery-ui.min.js' %}"> </script>
+  <!-- Global Required Scripts End -->
+
+  <!-- Page Specific Scripts Start -->
+  <script src="{% static 'assets/js/slick.min.js' %}"> </script>
+  <script src="{% static 'assets/js/moment.js' %}"> </script>
+  <script src="{% static 'assets/js/jquery.webticker.min.js' %}"> </script>
+  <script src="{% static 'assets/js/Chart.bundle.min.js' %}"> </script>
+  <script src="{% static 'assets/js/Chart.Financial.js' %}"> </script>
+
+  <!-- Page Specific Scripts Finish -->
+  <script src="{% static 'assets/js/datatables.min.js' %}"> </script>
+  <script src="{% static 'assets/js/data-tables.js' %}"> </script>
+  <!-- Page Specific Scripts Start -->
+  <!-- Page Specific Scripts End -->
+
+
+  <!-- Foodtech core JavaScript -->
+  <script src="{% static 'assets/js/framework.js' %}"></script>
+
+  <!-- Settings -->
+  <script src="{% static 'assets/js/settings.js' %}"></script>
+
+
+
+
+    <script src="{% static 'assets/js/jquery-3.3.1.min.js' %}"></script>
+  <script src="{% static 'assets/js/popper.min.js' %}"></script>
+  <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'assets/js/perfect-scrollbar.js' %}"> </script>
+  <script src="{% static 'assets/js/jquery-ui.min.js' %}"> </script>
+  <!-- Global Required Scripts End -->
+
+  <!-- Page Specific Scripts Start -->
+  <script src="{% static 'assets/js/Chart.bundle.min.js' %}"> </script>
+  <!-- Page Specific Scripts End -->
+
+  <!-- Page Specific Scripts Finish -->
+  <script src="{% static 'assets/js/datatables.min.js' %}"> </script>
+  <script src="{% static 'assets/js/data-tables.js' %}"> </script>
+
+  <!-- Foodtech core JavaScript -->
+  <script src="{% static 'assets/js/framework.js' %}"></script>
+
+  <!-- Settings -->
+  <script src="{% static 'assets/js/settings.js' %}"> </script>
+</body>
+
+</html>
